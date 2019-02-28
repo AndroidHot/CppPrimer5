@@ -1,8 +1,10 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using std::istream;
 using std::string;
+using std::istringstream;
 
 istream& func(istream& is)
 {
@@ -16,7 +18,7 @@ istream& func(istream& is)
 
 int main()
 {
-    istream& is = func(std::cin);
-    std::cout << is.rdstate() << std::endl;
+    istringstream record("Hello world");
+    istream& is = func(record);
     return 0;
 }
