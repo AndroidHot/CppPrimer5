@@ -11,12 +11,16 @@ double print_total(std::ostream &os, const Quote &item, size_t n)
 
 int main(int argc, char const *argv[])
 {
-    BulkQuote item("#1984", 18.8, 11, 0.5);
-    print_total(std::cout, item, 10);
-    print_total(std::cout, item, 20);
+    Quote item1("#1984", 18.8);
+    print_total(std::cout, item1, 10);
+    print_total(std::cout, item1, 20);
 
-    LimitQuote item2("#1984", 18.8, 11, 0.5);
+    BulkQuote item2("#1984", 18.8, 11, 0.5);
     print_total(std::cout, item2, 10);
     print_total(std::cout, item2, 20);
+
+    LimitQuote item3("#1984", 18.8, 10, 0.5);
+    print_total(std::cout, item3, 10);
+    print_total(std::cout, item3, 20);
     return 0;
 }
