@@ -16,7 +16,7 @@ public:
         {
             return n * (1 - discount) * price;
         }
-        return price * n;
+        return price * (n - quantity) + quantity * (1 - discount) * price;
     }
     ~LimitQuote() = default;
 };
