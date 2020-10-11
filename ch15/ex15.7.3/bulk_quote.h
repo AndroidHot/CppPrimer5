@@ -13,9 +13,16 @@ private:
     double discount = 0.0;
 
 public:
-    BulkQuote() = default;
+    BulkQuote()
+    {
+        std::cout << "BulkQuote constructing\n";
+    }
+
     BulkQuote(const std::string &bookNo, double price,
-              std::size_t qty, double disc) : Quote(bookNo, price), min_qty(qty), discount(disc) {}
+              std::size_t qty, double disc) : Quote(bookNo, price), min_qty(qty), discount(disc)
+    {
+        std::cout << "BulkQuote constructing\n";
+    }
 
     BulkQuote(const BulkQuote &q) : Quote(q), min_qty(q.min_qty), discount(q.discount)
     {
@@ -36,7 +43,7 @@ public:
             min_qty = rhs.min_qty;
             discount = rhs.discount;
         }
-        std::cout << "BulkQuote: copy =() \n";
+        std::cout << "BulkQuote: copy =() end \n";
 
         return *this;
     }
@@ -51,7 +58,7 @@ public:
             min_qty = std::move(rhs.min_qty);
             discount = std::move(rhs.discount);
         }
-        std::cout << "BulkQuote: move =() \n";
+        std::cout << "BulkQuote: move =() end\n";
 
         return *this;
     }
@@ -69,7 +76,10 @@ public:
         printf("bookNo: %s, price: %f, min_qty: %d, discount: %f\n",
                isbn().c_str(), price, (int)min_qty, discount);
     }
-    ~BulkQuote() = default;
+    ~BulkQuote()
+    {
+        std::cout << "BulkQuote destructing\n";
+    }
 };
 
 #endif

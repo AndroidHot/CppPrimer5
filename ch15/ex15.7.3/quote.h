@@ -15,8 +15,15 @@ protected:
     double price = 0.0;
 
 public:
-    Quote() = default;
-    Quote(const std::string &book, double sales_price) : bookNo(book), price(sales_price) {}
+    Quote()
+    {
+        std::cout << "Quote constructing\n";
+    }
+
+    Quote(const std::string &book, double sales_price) : bookNo(book), price(sales_price)
+    {
+        std::cout << "Quote constructing\n";
+    }
 
     Quote(const Quote &q) : bookNo(q.bookNo), price(q.price)
     {
@@ -37,7 +44,7 @@ public:
             bookNo = rhs.bookNo;
             price = rhs.price;
         }
-        std::cout << "Quote: copy =() \n";
+        std::cout << "Quote: copy =() end \n";
 
         return *this;
     }
@@ -51,7 +58,7 @@ public:
             bookNo = std::move(rhs.bookNo);
             price = std::move(rhs.price);
         }
-        std::cout << "Quote: move =() \n";
+        std::cout << "Quote: move =() end \n";
 
         return *this;
     }
@@ -59,7 +66,10 @@ public:
     std::string isbn() const { return bookNo; }
     virtual double net_price(std::size_t n) const { return price * n; }
     virtual void debug() const { printf("bookNo: %s, price: %f\n", bookNo.c_str(), price); }
-    virtual ~Quote() = default;
+    virtual ~Quote()
+    {
+        std::cout << "Quote destructing\n";
+    }
 };
 
 bool inline
