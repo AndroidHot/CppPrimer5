@@ -19,4 +19,6 @@ int main()
     foo("hi");        // sizeof...(Args): 0, sizeof...(args): 0.
 
     foo("hi", i, i); // sizeof...(Args): 2, sizeof...(args): 2.
+
+    return 0;
 }

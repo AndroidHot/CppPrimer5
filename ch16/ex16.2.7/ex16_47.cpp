@@ -23,4 +23,6 @@ int main()
     int i = 4;
     // flip(foo, i, 42); // error: cannot bind rvalue reference of type ‘int&&’ to lvalue of type ‘int’
     flip2(foo, i, 42);
+
+    return 0;
 }

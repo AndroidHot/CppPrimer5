@@ -38,4 +38,6 @@ int main()
     f(p);
     f(ci);
     f(p2);
+
+    return 0;
 }
